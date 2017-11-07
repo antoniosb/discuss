@@ -32,9 +32,16 @@ function renderComment(event) {
 };
 
 function commentTemplate(comment) {
+  let name = 'Anonymous';
+  if(comment.user) {
+    name = comment.user.name;
+  }
   return `
     <li class="collection-item">
       ${comment.content}
+      <div class="secondary-content">
+        ${name}
+      </div>
     </li>
   `;
 }
